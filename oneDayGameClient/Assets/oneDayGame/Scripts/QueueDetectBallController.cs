@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 public class QueueDetectBallController : MonoBehaviour
 {
@@ -12,6 +13,16 @@ public class QueueDetectBallController : MonoBehaviour
 
     private float velocityCofficient = 100f;
 
+    public Action OnShot;
+
+    private bool active = false;
+
+    public void SetActive(bool isActive)
+    {
+        active = isActive;
+        queue.SetActive(isActive);
+    }
+
     void Awake()
     {
         shotBallRadius = shotBall.SphereCollider.radius;
@@ -20,7 +31,7 @@ public class QueueDetectBallController : MonoBehaviour
 
     void LateUpdate()
     {
-        if (!queue.isActiveAndEnabled)
+        if (!queue.isActiveAndEnabled || !active)
         {
             return;
         }
@@ -44,6 +55,7 @@ public class QueueDetectBallController : MonoBehaviour
             // 衝突処理を行う
             shotBall.AddForce(queue.QueueVelocity * velocityCofficient);
             queue.gameObject.SetActive(false);
+            OnShot?.Invoke();
         }
     }
 }

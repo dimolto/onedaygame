@@ -17,6 +17,8 @@ public class Queue : MonoBehaviour
 
     private Vector3 startPosition;
 
+    private bool active;
+
     public Vector3 StartPosition
     {
         get { return startPosition; }
@@ -41,6 +43,10 @@ public class Queue : MonoBehaviour
         }
     }
 
+    public void SetActive(bool isActive)
+    {
+        active = isActive;
+    }
 
     void Awake()
     {
@@ -56,17 +62,28 @@ public class Queue : MonoBehaviour
 
     void OnInitializePotentialDragCallback(PointerEventData eventData)
     {
+        if (!active)
+        {
+            return;
+        }
         startPosition = transform.position;
         QueueVelocity = Vector3.zero;
     }
 
     void OnBeginDrag(PointerEventData eventData)
     {
-
+        if (!active)
+        {
+            return;
+        }
     }
 
     void OnDrag(PointerEventData eventData)
     {
+        if (!active)
+        {
+            return;
+        }
         // Dragにより次のキューの位置
         var nextQueuePosition = tip.TipRigidbody.position + new Vector3(0, 0, eventData.delta.y  * Time.deltaTime * speedCofficient);
         transform.position = nextQueuePosition;
@@ -75,6 +92,10 @@ public class Queue : MonoBehaviour
 
     void OnEndDrag(PointerEventData eventData)
     {
+        if (!active)
+        {
+            return;
+        }
         tip.TipRigidbody.velocity = Vector3.zero;
         tip.TipRigidbody.angularVelocity = Vector3.zero;
     }
