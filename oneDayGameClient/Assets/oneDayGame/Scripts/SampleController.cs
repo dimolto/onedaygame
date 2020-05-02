@@ -8,6 +8,6 @@ public class SampleController : MonoBehaviour
 
     public void MovePosition()
     {
-        rigidbody.MovePosition(rigidbody.transform.position + rigidbody.transform.forward * 0.5f);
+        rigidbody.AddForceAtPosition(rigidbody.transform.forward.normalized * 100, rigidbody.transform.position + rigidbody.transform.forward * 0.5f);
     }
 }
