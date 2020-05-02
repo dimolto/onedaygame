@@ -66,6 +66,10 @@ public class GameController : MonoBehaviour
         queueDetectBallController.SetActive(true);
     }
 
+    void EndShotBall()
+    {
+    }
+
     void StartWaitBallStop()
     {
 
