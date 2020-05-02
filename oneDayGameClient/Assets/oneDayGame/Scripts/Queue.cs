@@ -12,6 +12,7 @@ public class Queue : MonoBehaviour
     public void OnContact(Collision other)
     {
         Debug.Log("OnContact");
+        tip.gameObject.SetActive(false);
     }
 
 
