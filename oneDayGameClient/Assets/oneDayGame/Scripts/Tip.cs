@@ -3,15 +3,15 @@ using UnityEngine;
 
 public class Tip : MonoBehaviour
 {
-    [SerializeField] private Collider tipCollider;
+    [SerializeField] private SphereCollider tipCollider;
 
-    public Collider TipCollider
+    public SphereCollider TipCollider
     {
         get
         {
             if (tipCollider == null)
             {
-                tipCollider = GetComponent<Collider>();
+                tipCollider = GetComponent<SphereCollider>();
             }
 
             return tipCollider;

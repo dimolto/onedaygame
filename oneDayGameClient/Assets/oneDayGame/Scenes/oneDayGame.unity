@@ -775,7 +775,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 180d9ebb222f546c689d7bf08e65b1d9, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1376,6 +1376,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tip: {fileID: 947528660}
+  dragDetector: {fileID: 861431967}
 --- !u!1 &963194225
 GameObject:
   m_ObjectHideFlags: 0
@@ -1526,7 +1527,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 4f7583ddc8d9943a988dc54c249dad31, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1578,8 +1579,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1371991609}
-  - component: {fileID: 1371991608}
   - component: {fileID: 1371991610}
+  - component: {fileID: 1371991611}
   m_Layer: 0
   m_Name: Controller
   m_TagString: Untagged
@@ -1587,22 +1588,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1371991608
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1371991607}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e3b79ad87772d4b0694f3aa6c27a622d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  queueRigidbody: {fileID: 947528659}
-  tipCollider: {fileID: 947528656}
-  targetBallCollider: {fileID: 1555824499}
-  dragDetector: {fileID: 861431967}
 --- !u!4 &1371991609
 Transform:
   m_ObjectHideFlags: 0
@@ -1634,6 +1619,20 @@ MonoBehaviour:
   - {fileID: 1555824498}
   - {fileID: 410203345}
   - {fileID: 1353927023}
+--- !u!114 &1371991611
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1371991607}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e15ff09547462407396dc432a50639b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  queue: {fileID: 947528661}
+  shotBall: {fileID: 1555824503}
 --- !u!1 &1555824497
 GameObject:
   m_ObjectHideFlags: 0
@@ -1647,8 +1646,9 @@ GameObject:
   - component: {fileID: 1555824500}
   - component: {fileID: 1555824499}
   - component: {fileID: 1555824498}
+  - component: {fileID: 1555824503}
   m_Layer: 8
-  m_Name: Sphere
+  m_Name: ShotBall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1744,6 +1744,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1555824503
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1555824497}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0fa4cfd48889d45a9a298f5001d4ed9f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1719591918
 GameObject:
   m_ObjectHideFlags: 0
@@ -1849,6 +1861,7 @@ GameObject:
   - component: {fileID: 2028023512}
   - component: {fileID: 2028023511}
   - component: {fileID: 2028023510}
+  - component: {fileID: 2028023513}
   m_Layer: 10
   m_Name: wall
   m_TagString: Untagged
@@ -1930,3 +1943,15 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2028023508}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &2028023513
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2028023508}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0fa4cfd48889d45a9a298f5001d4ed9f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
