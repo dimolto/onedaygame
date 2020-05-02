@@ -1,0 +1,10 @@
+*Temp
+*Library
+*DS_Store
+.idea
+*.csproj
+*.sln
+*.userprefs
+*.unityproj
+oneDayGameClient/obj
+*.DotSettings.user
