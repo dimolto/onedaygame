@@ -23,14 +23,15 @@ public class ResetController : MonoBehaviour
         }
     }
 
-    [SerializeField] private Rigidbody[] rigidbodies;
+    private Rigidbody[] rigidbodies;
 
     private StartInfo[] startInfos;
 
     void Awake()
     {
+        rigidbodies = FindObjectsOfType<Rigidbody>();
         startInfos = new StartInfo[rigidbodies.Length];
-        for (var i=0; i<rigidbodies.Length; i++)
+        for (var i = 0; i < rigidbodies.Length; i++)
         {
             startInfos[i] = new StartInfo(rigidbodies[i]);
         }
