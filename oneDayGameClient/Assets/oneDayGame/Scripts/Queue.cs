@@ -84,8 +84,9 @@ public class Queue : MonoBehaviour
         {
             return;
         }
+
         // Dragにより次のキューの位置
-        var nextQueuePosition = tip.TipRigidbody.position + new Vector3(0, 0, eventData.delta.y  * Time.deltaTime * speedCofficient);
+        var nextQueuePosition = tip.TipRigidbody.position + tip.transform.forward *  eventData.delta.y  * Time.deltaTime * speedCofficient;
         transform.position = nextQueuePosition;
         QueueVelocity = transform.forward * eventData.delta.magnitude * Time.deltaTime;
     }

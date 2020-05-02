@@ -1581,6 +1581,8 @@ GameObject:
   - component: {fileID: 1371991609}
   - component: {fileID: 1371991610}
   - component: {fileID: 1371991611}
+  - component: {fileID: 1371991608}
+  - component: {fileID: 1371991612}
   m_Layer: 0
   m_Name: Controller
   m_TagString: Untagged
@@ -1588,6 +1590,21 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &1371991608
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1371991607}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62de84ca402664cd099413f5df705f14, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tip: {fileID: 947528660}
+  shotBall: {fileID: 1555824503}
+  dragDetector: {fileID: 861431967}
 --- !u!4 &1371991609
 Transform:
   m_ObjectHideFlags: 0
@@ -1614,11 +1631,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: de18511563096453cb792a779fd55b5d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rigidbodies:
-  - {fileID: 947528659}
-  - {fileID: 1555824498}
-  - {fileID: 410203345}
-  - {fileID: 1353927023}
 --- !u!114 &1371991611
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1633,6 +1645,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   queue: {fileID: 947528661}
   shotBall: {fileID: 1555824503}
+--- !u!114 &1371991612
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1371991607}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e3b79ad87772d4b0694f3aa6c27a622d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  decideQueuePosition: {fileID: 1371991608}
+  queueDetectBallController: {fileID: 1371991611}
 --- !u!1 &1555824497
 GameObject:
   m_ObjectHideFlags: 0
