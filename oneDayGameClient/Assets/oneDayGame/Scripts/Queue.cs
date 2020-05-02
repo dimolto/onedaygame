@@ -19,6 +19,8 @@ public class Queue : MonoBehaviour
 
     private bool active;
 
+    private int pointerId;
+
     public Vector3 StartPosition
     {
         get { return startPosition; }
@@ -68,11 +70,12 @@ public class Queue : MonoBehaviour
         }
         startPosition = transform.position;
         QueueVelocity = Vector3.zero;
+        pointerId = eventData.pointerId;
     }
 
     void OnBeginDrag(PointerEventData eventData)
     {
-        if (!active)
+        if (!ValidateInput(eventData))
         {
             return;
         }
@@ -80,7 +83,7 @@ public class Queue : MonoBehaviour
 
     void OnDrag(PointerEventData eventData)
     {
-        if (!active)
+        if (!ValidateInput(eventData))
         {
             return;
         }
@@ -93,12 +96,22 @@ public class Queue : MonoBehaviour
 
     void OnEndDrag(PointerEventData eventData)
     {
-        if (!active)
+        if (!ValidateInput(eventData))
         {
             return;
         }
         tip.TipRigidbody.velocity = Vector3.zero;
         tip.TipRigidbody.angularVelocity = Vector3.zero;
+    }
+
+    bool ValidateInput(PointerEventData eventData)
+    {
+        if (active && pointerId == eventData.pointerId)
+        {
+            return true;
+        }
+
+        return false;
     }
 }
 
