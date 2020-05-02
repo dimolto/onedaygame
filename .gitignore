@@ -6,5 +6,6 @@
 *.sln
 *.userprefs
 *.unityproj
-oneDayGameClient/obj
 *.DotSettings.user
+oneDayGameClient/obj
+oneDayGameClient/Assets/Plugins/Editor/JetBrains*
